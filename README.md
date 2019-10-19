@@ -1,5 +1,7 @@
 # Welcome to the DEFT corpus!
 
+https://competitions.codalab.org/competitions/20900
+
 Welcome to the largest expertly annotated corpus for complex definition extraction in free text. Pardon our dust - this data is associated with [SemEval 2020 Task 6](https://competitions.codalab.org/competitions/20900) (DeftEval) and we are releasing the full dataset on the SemEval conference schedule. Train and dev data are available, and test data will become available after the completion of the SemEval evaluation period on 2 Feb 2020. You can source the complete text from the corresponding textbooks at <https://cnx.org>.
 
 The most recent version of the corpus was updated on **04 SEPT 2019**.
@@ -40,4 +42,16 @@ If you use the DEFT corpus in your publication, please cite this [paper](https:/
     abstract = "Definition extraction has been a popular topic in NLP research for well more than a decade, but has been historically limited to well-defined, structured, and narrow conditions. In reality, natural language is messy, and messy data requires both complex solutions and data that reflects that reality. In this paper, we present a robust English corpus and annotation schema that allows us to explore the less straightforward examples of term-definition structures in free and semi-structured text.",
 }
 ```
+
+My Commands
+--mode training --experiment car_mb --collection mb --local_model models/pytorch_car.tar.gz --local_tokenizer models/bert-large-uncased-vocab.txt --batch_size 16 --data_path data --predict_path data/predictions/predict.car_mb --model_path models/saved.car_mb --eval_steps 1000 --device cuda 
+
+
+--mode training --experiment msmarco_mb --collection mb --local_model models/pytorch_car.tar.gz --local_tokenizer models/bert-large-uncased-vocab.txt --batch_size 16 --data_path data --predict_path data/predictions/predict.car_mb --model_path models/saved.car_mb --eval_steps 1000 --device cuda 
+
+
+
+--mode training --experiment mb --collection mb --local_model models/bert-large-uncased.tar.gz --local_tokenizer models/bert-large-uncased-vocab.txt --batch_size 16 --data_path data --predict_path data/predictions/predict.mb --model_path models/saved.mb --eval_steps 1000 --device cuda
+
+
 
