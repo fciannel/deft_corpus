@@ -26,6 +26,7 @@ import optimization
 import tokenization
 import tensorflow as tf
 import glob
+import re
 
 import sys
 import csv
@@ -212,7 +213,10 @@ class DataProcessor(object):
             with tf.gfile.Open(input_file, "r") as f:
                 reader = csv.reader(f, delimiter="\t", quotechar=quotechar)
                 for line in reader:
-                    lines.append([line[1].strip('\"'), line[0].strip('\"')])
+                    text_ = re.sub(r'\s+[0-9]+ \. ', '', line[0]).strip('\"')
+                    label_  = line[1].strip('\"')
+                    # lines.append([line[1].strip('\"'), line[0].strip('\"')])
+                    lines.append([label_, text_])
         return lines
 
 
