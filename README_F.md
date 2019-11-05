@@ -40,13 +40,10 @@ unzip uncased_L-12_H-768_A-12.zip
 
 gsutil cp -r * gs://ml_models_storage/bert_pretrained_models
 
-
-
 export BERT_BASE_DIR=gs://ml_models_storage/bert_pretrained_models/uncased_L-12_H-768_A-12
 export DATA_DIR=/home/fciannel/deft_corpus/data/bert_ready_data
 export TASK_NAME=SEMEVAL
 export TPU_NAME=grpc://10.240.1.18:8470
-
 
 python3 run_classifier.py \
   --task_name=$TASK_NAME \

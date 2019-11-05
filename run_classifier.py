@@ -206,7 +206,7 @@ class DataProcessor(object):
     @classmethod
     def _read_tsv(cls, input_dir, quotechar=None):
         """Reads a tab separated value file."""
-        files = glob.glob(input_dir+"/*.deft")
+        files = glob.glob(input_dir+"/*.txt")
         lines = []
         for input_file in files:
             with tf.gfile.Open(input_file, "r") as f:
@@ -214,6 +214,18 @@ class DataProcessor(object):
                 for line in reader:
                     lines.append([line[1].strip('\"'), line[0].strip('\"')])
         return lines
+    #
+    # def _read_tsv(cls, input_dir, quotechar=None):
+    #     """Reads a tab separated value file."""
+    #     files = glob.glob(input_dir+"/*.deft")
+    #     lines = []
+    #     for input_file in files:
+    #         with tf.gfile.Open(input_file, "r") as f:
+    #             reader = csv.reader(f, delimiter="\t", quotechar=quotechar)
+    #             for line in reader:
+    #                 lines.append([line[1].strip('\"'), line[0].strip('\"')])
+    #     return lines
+
 
 
 class XnliProcessor(DataProcessor):
